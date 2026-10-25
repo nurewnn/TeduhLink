@@ -12,6 +12,10 @@ build/
 # Supabase local runtime
 supabase/.temp/
 
+# Local agent skill installations
+.agents/
+skills-lock.json
+
 # Editor and operating-system files
 .DS_Store
 Thumbs.db
