@@ -14,6 +14,7 @@ The app must distinguish listed amenities, measured readings, simulated readings
 ## Repository map
 
 - `docs/data-contract.md` - shared payload and status rules for every team member.
+- `docs/team-integration-rules.md` - handoff checklist for the hardware, network, and AI/CS members.
 - `supabase/migrations/001_initial_schema.sql` - database tables, policies, and demo seed data.
 - `.env.example` - local configuration template; never commit real keys.
 
