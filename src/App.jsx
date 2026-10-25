@@ -28,11 +28,12 @@ function App() {
 
   useEffect(() => {
     let active = true
-    loadStops()
+    const refreshStops = () => loadStops()
       .then(({ stops: loadedStops, mode }) => {
         if (!active) return
         setStops(loadedStops.length ? loadedStops : demoStops)
         setDataMode(mode)
+        setError('')
       })
       .catch((loadError) => {
         if (!active) return
@@ -41,7 +42,13 @@ function App() {
         setDataMode('demo')
       })
       .finally(() => active && setLoading(false))
-    return () => { active = false }
+
+    refreshStops()
+    const poll = window.setInterval(refreshStops, 10_000)
+    return () => {
+      active = false
+      window.clearInterval(poll)
+    }
   }, [])
 
   const visibleStops = useMemo(() => {
